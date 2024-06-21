@@ -202,7 +202,7 @@
    // Define the countdown function
 const countDown = () => {
   // Set the release date for the Aquaman movie
-  const releaseDate = new Date('May 25, 2024 00:00:00').getTime();
+  const releaseDate = new Date('July 15, 2024 00:00:00').getTime();
 
   // Get the current date and time
   const presentDate = new Date().getTime();

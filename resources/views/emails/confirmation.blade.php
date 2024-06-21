@@ -2,7 +2,7 @@
 Dear {{ $customer->name }},
 
 Great news!
-We've received your registration for the first-ever ProtaStructure Training in {{ $customer->location }} from May 13th, 2024.
+We've received your registration for official ProtaStructure Training in Dodoma Tanzania from July 22nd, 2024.
 
 This is your chance to gain a significant advantage in Tanzania's thriving construction industry.
 
@@ -15,12 +15,12 @@ Account Name: Nziza Global Ltd
 #Fees structure:
 
 Physical attendees:
-- 800,000 TShs (Breakfast & lunch included)
+- 700,000 TShs (Breakfast & lunch included)
 - 500,000 TShs (Without breakfast & lunch)
 - Virtual Attendees: 300,000 TShs
 
 
-Please note that registration closes on May 5th, 2024. Make your payment by then to secure your spot.
+Please note that registration closes on July 15th, 2024. Make your payment by then to secure your spot.
 
 Once your payment is received, please keep your payment slip for your records and bring it with you to the event.
 

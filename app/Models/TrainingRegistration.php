@@ -14,7 +14,6 @@ class TrainingRegistration extends Model
         'phone',
         'company',
         'attendence_type',
-        'location',
         'professional',
         'university',
     ];

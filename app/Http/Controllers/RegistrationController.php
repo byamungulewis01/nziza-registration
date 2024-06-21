@@ -24,12 +24,9 @@ class RegistrationController extends Controller
             'phone' => 'required|unique:training_registrations,phone',
             'company' => 'nullable',
             'attendence_type' => 'required',
-            'location' => 'required',
             'professional' => 'required',
             'university' => 'required',
         ]);
-
-        // dd($request->all());
 
         try {
             $customer = TrainingRegistration::create($request->all());

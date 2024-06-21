@@ -47,7 +47,7 @@
 
                 <div class="col-lg-5">
                     <div class="contact-img-box position-relative border p-2 h-100">
-                        <img src="{{ asset('assets/img/nziza/protasoft.jpg') }}" alt="contact customer service"
+                        <img src="{{ asset('assets/img/nziza/dodom.jpg') }}" alt="contact customer service"
                             class="contact-img w-100 scaleX-n1-rtl" />
                         <div class="pt-3 px-4 pb-1">
                             <div class="row gy-3 gx-md-4">
@@ -122,7 +122,7 @@
                                                     @if (!old('attendence_type')) checked="" @endif>
                                                 <span class="custom-option-header">
                                                     <span class="h6 mb-0">PHYSICAL</span>
-                                                    <span class="text-danger">800,000 TZS</span>
+                                                    <span class="text-danger">700,000 TZS</span>
                                                 </span>
                                                 <span class="custom-option-body">
                                                     <small>With breakfast & lunch .</small>
@@ -165,7 +165,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12">
-                                        <div class="mb-2">
+                                        {{-- <div class="mb-2">
                                             <label class="form-label fs-6" for="name">Location<span
                                                     class="text-danger">*</span></label>
                                             <select class="form-select" name="location" id="">
@@ -181,8 +181,10 @@
                                                 <option {{ old('location') == 'Zanzibar' ? 'selected' : '' }}
                                                     value="Zanzibar">Zanzibar</option>
                                             </select>
-                                        </div>
+                                        </div> --}}
                                         <div>
+                                            <label class="form-label fs-6" for="name">What is your Profession ?<span
+                                                class="text-danger">*</span></label>
                                             <select class="form-select" name="professional" aria-placeholder="Study"
                                                 id="who">
                                                 <option value="" selected disabled>-- Select Professional --</option>
@@ -199,11 +201,10 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <label class="form-label fs-6" for="name">What you study in University ?<span
-                                                class="text-danger">*</span></label>
-                                        <textarea class="form-control" name="university" rows="3" placeholder="write what you study in university">{{ old('university') }}</textarea>
-                                    </div>
+                                    {{-- <div class="col-lg-7 col-md-12">
+                                        <label class="form-label fs-6" for="name"></label>
+                                        <input class="form-control" name="university" placeholder="write what you study in university" value="{{ old('university') }}"/>
+                                    </div> --}}
                                     <div class="col-12">
                                         <button type="submit" id="submit_button" class="btn btn-danger">Register
                                             Now</button>
