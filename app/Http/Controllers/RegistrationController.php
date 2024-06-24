@@ -35,7 +35,7 @@ class RegistrationController extends Controller
             Mail::to($customer->email)->send(new ConfirmationEmail($customer));
 
             // Send notification email to your team
-            Mail::to('byamungulewis@gmail.com')->send(new RegistrationEmail($customer));
+            Mail::to('mugisha.salvator@nzizaglobal.com')->send(new RegistrationEmail($customer));
 
             return to_route('success');
         } catch (\Throwable $th) {
