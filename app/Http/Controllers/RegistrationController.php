@@ -25,7 +25,7 @@ class RegistrationController extends Controller
             'company' => 'nullable',
             'attendence_type' => 'required',
             'professional' => 'required',
-            'university' => 'required',
+            // 'university' => 'required',
         ]);
 
         try {
