@@ -1,4 +1,7 @@
 @extends('layout')
+@section('conversion')
+<script> gtag('event', 'conversion', { 'send_to': 'AW-16541374180/vsDCCLj06LwZEOStxc89', 'value': 1.0, 'currency': 'USD' }); </script>
+@endsection
 @section('content')
     <section id="landingContact" class="section-py landing-contact">
         <div class="container mt-5">

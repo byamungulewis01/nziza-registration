@@ -37,8 +37,9 @@
     <!-- Page CSS -->
 
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/front-page-landing.css') }}" />
-
+    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-16541374180'); </script>
     <!-- Helpers -->
+    @yield('conversion')
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
     <script src="{{ asset('assets/js/front-config.js') }}"></script>
     <script src="{{ asset('assets/js/sweet-alert.js') }}"></script>
