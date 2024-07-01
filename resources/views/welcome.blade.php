@@ -112,7 +112,7 @@
                                         <input required name="company" value="{{ old('company') }}" type="text"
                                             class="form-control" id="company" placeholder="Company Name" />
                                     </div>
-                                    <div class="col-lg-4 col-md-6">
+                                    <div class="col-lg-6 col-md-6">
                                         <div class="form-check form-check-danger custom-option custom-option-basic checked">
                                             <label class="form-check-label custom-option-content" for="attendence_type1">
                                                 <input
@@ -148,7 +148,7 @@
                                             </label>
                                         </div>
                                     </div> --}}
-                                    <div class="col-lg-4 col-md-6">
+                                    <div class="col-lg-6 col-md-6">
                                         <div class="form-check form-check-danger custom-option custom-option-basic">
                                             <label class="form-check-label custom-option-content" for="attendence_type3">
                                                 <input {{ old('attendence_type') == 'Virtual' ? 'checked' : '' }}
