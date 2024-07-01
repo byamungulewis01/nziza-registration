@@ -47,4 +47,9 @@ class RegistrationController extends Controller
     {
         return view('success');
     }
+    public function protastructure()
+    {
+        return view('protastructure');
+    }
+
 }
