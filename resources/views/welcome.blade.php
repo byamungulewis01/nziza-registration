@@ -47,7 +47,7 @@
 
                 <div class="col-lg-5">
                     <div class="contact-img-box position-relative border p-2 h-100">
-                        <img src="{{ asset('assets/img/nziza/dodom.jpg') }}" alt="contact customer service"
+                        <img src="{{ asset('assets/img/nziza/newProtaDodoma.jpg') }}" alt="contact customer service"
                             class="contact-img w-100 scaleX-n1-rtl" />
                         <div class="pt-3 px-4 pb-1">
                             <div class="row gy-3 gx-md-4">
