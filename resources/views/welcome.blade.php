@@ -130,7 +130,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6">
+                                    {{-- <div class="col-lg-4 col-md-6">
                                         <div
                                             class="form-check form-check-danger custom-option custom-option-basic checked">
                                             <label class="form-check-label custom-option-content" for="attendence_type2">
@@ -147,7 +147,7 @@
                                                 </span>
                                             </label>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-lg-4 col-md-6">
                                         <div class="form-check form-check-danger custom-option custom-option-basic">
                                             <label class="form-check-label custom-option-content" for="attendence_type3">
