@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sub_units', function (Blueprint $table) {
+        Schema::create('prota_registrations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('department_id')->constrained()->restrictOnDelete();
-            $table->string('name')->unique();
-            $table->string('description')->nullable();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('phone')->unique();
+            $table->string('company')->nullable();
+            $table->string('location')->nullable();
+            $table->string('attendence_type');
+            $table->string('college');
             $table->timestamps();
         });
     }
@@ -29,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub_units');
+        Schema::dropIfExists('prota_registrations');
     }
 };

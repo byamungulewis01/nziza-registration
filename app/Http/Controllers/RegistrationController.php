@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ProtaMail;
 use Illuminate\Http\Request;
 use App\Mail\ConfirmationEmail;
 use App\Mail\RegistrationEmail;
+use App\Models\ProtaRegistration;
 use App\Models\TrainingRegistration;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 
 class RegistrationController extends Controller
 {
@@ -40,6 +43,26 @@ class RegistrationController extends Controller
         } catch (\Throwable $th) {
             //throw $th;
             // dd($th->getMessage());
+            return back()->with('error', 'some thing went wrong please try again');
+        }
+    }
+    public function protastructure_store(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:prota_registrations,email',
+            'phone' => 'required|unique:prota_registrations,phone',
+            'company' => 'nullable',
+            'location' => 'nullable',
+            'attendence_type' => 'required',
+            'college' => 'required',
+        ]);
+        try {
+            $customer = ProtaRegistration::create($request->all());
+            Mail::to('alexandre@nzizaglobal.com')->send(new ProtaMail($customer));
+            return Redirect::to('https://nzizaglobal.co.tz');
+        } catch (\Throwable $th) {
             return back()->with('error', 'some thing went wrong please try again');
         }
     }

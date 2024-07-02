@@ -19,4 +19,5 @@ Route::controller(RegistrationController::class)->group(function () {
     Route::post('/register', 'register')->name('register');
     Route::get('/success', 'success')->name('success');
     Route::get('/protastructure', 'protastructure')->name('protastructure');
+    Route::post('/protastructure', 'protastructure_store')->name('protastructure_store');
 });

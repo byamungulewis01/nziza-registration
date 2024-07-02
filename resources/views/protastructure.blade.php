@@ -13,9 +13,9 @@
 
                 <div class="col-lg-5">
                     <div class="contact-img-box position-relative border p-2 h-100">
-                        <img src="{{ asset('assets/img/nziza/dodom.jpg') }}" alt="contact customer service"
+                        <img src="{{ asset('assets/img/nziza/newProtaDodoma.jpg') }}" alt="contact customer service"
                             class="contact-img w-100 scaleX-n1-rtl" />
-                        <div class="pt-3 px-4 pb-1">
+                        {{-- <div class="pt-3 px-4 pb-1">
                             <div class="row gy-3 gx-md-4">
                                 <div class="col-md-6 col-lg-12 col-xl-6">
                                     <div class="d-flex align-items-center">
@@ -43,15 +43,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="mb-0">ProtaStructure Registration</h4>
-                            <p class="text-muted mb-4">ProtaStructure 2024 Official Training launch in Tanzania</p>
-                            <form action="{{ route('register') }}" method="POST">
+                            <h4 class="mb-1">ProtaStructure Registration</h4>
+                            <p class="text-muted mb-4">Uzinduzi wa mafunzo na utoaji vyeti vya kimataifa kwa watumiaji wa ProtaStructure 2024</p>
+                            <form action="{{ route('protastructure_store') }}" method="POST">
                                 @csrf
                                 <div class="row g-3">
                                     <div class="col-lg-6 col-md-12">
@@ -75,7 +75,7 @@
 
                                     <div class="col-lg-6 col-md-12">
                                         <label class="form-label fs-6" for="company">Campany Name <strong>(Optional)</strong></label>
-                                        <input required name="company" value="{{ old('company') }}" type="text"
+                                        <input name="company" value="{{ old('company') }}" type="text"
                                             class="form-control" id="company" placeholder="What company do you work for?" />
                                     </div>
                                     <div class="col-lg-6 col-md-6">
@@ -120,7 +120,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-12">
                                         <label class="form-label fs-6" for="name">What you study in college <span class="text-danger">*</span></label>
-                                        <input class="form-control" name="university" placeholder="write what you study here" value="{{ old('university') }}"/>
+                                        <input class="form-control" required name="college" placeholder="write what you study here" value="{{ old('college') }}"/>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-check">
@@ -130,7 +130,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <button type="submit" id="submit_button" class="btn btn-danger">Register
+                                        <button type="submit" class="btn btn-danger">Register
                                             Now</button>
 
                                     </div>
