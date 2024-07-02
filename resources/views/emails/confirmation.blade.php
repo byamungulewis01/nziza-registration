@@ -16,11 +16,10 @@ Account Name: Nziza Global Ltd
 
 Physical attendees:
 - 700,000 TShs (Breakfast & lunch included)
-- 500,000 TShs (Without breakfast & lunch)
 - Virtual Attendees: 300,000 TShs
 
 
-Please note that registration closes on July 15th, 2024. Make your payment by then to secure your spot.
+Please note that registration closes on July 30th, 2024. Make your payment by then to secure your spot.
 
 Once your payment is received, please keep your payment slip for your records and bring it with you to the event.
 

@@ -18,6 +18,7 @@ class RegistrationController extends Controller
 
     public function register(Request $request)
     {
+
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:training_registrations,email',
@@ -25,9 +26,7 @@ class RegistrationController extends Controller
             'company' => 'nullable',
             'attendence_type' => 'required',
             'professional' => 'required',
-            // 'university' => 'required',
         ]);
-
         try {
             $customer = TrainingRegistration::create($request->all());
 
@@ -40,6 +39,7 @@ class RegistrationController extends Controller
             return to_route('success');
         } catch (\Throwable $th) {
             //throw $th;
+            // dd($th->getMessage());
             return back()->with('error', 'some thing went wrong please try again');
         }
     }

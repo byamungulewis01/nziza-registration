@@ -16,5 +16,6 @@ class TrainingRegistration extends Model
         'attendence_type',
         'professional',
         // 'university',
+        // 'location',
     ];
 }

@@ -204,7 +204,7 @@
 
         });
     </script>
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#submit_button').click(function() {
                 var button = $(this);
@@ -212,6 +212,15 @@
                     '<span class="spinner-border me-1" role="status" aria-hidden="true"></span> Loading...'
                     ).prop('disabled', true);
                 document.getElementById('register').submit();
+            });
+        });
+    </script> --}}
+    <script>
+        $(document).ready(function() {
+            $("form").submit(function(event) {
+                $(this).find("button[type=submit]").html(
+                    '<span class="spinner-border me-1" role="status" aria-hidden="true"></span> Loading...'
+                ).prop("disabled", true);
             });
         });
     </script>
