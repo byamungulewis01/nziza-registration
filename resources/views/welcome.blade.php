@@ -39,10 +39,9 @@
 
             <div class="row gy-4">
                 @if (session('status'))
-
-                <div class="alert alert-danger">
-                    <p><strong class="text-danger">Opps Something went wrong {{ $message }}</strong></p>
-                </div>
+                    <div class="alert alert-danger">
+                        <p><strong class="text-danger">Opps Something went wrong {{ $message }}</strong></p>
+                    </div>
                 @endif
 
                 <div class="col-lg-5">
@@ -150,7 +149,7 @@
                                     <div class="col-lg-6 col-md-12">
                                         <div>
                                             <label class="form-label fs-6" for="name">What is your Profession ?<span
-                                                class="text-danger">*</span></label>
+                                                    class="text-danger">*</span></label>
                                             <select class="form-select" name="professional" aria-placeholder="Study"
                                                 id="who" required>
                                                 <option value="" selected disabled>-- Select Professional --</option>
@@ -167,11 +166,17 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <label class="form-label fs-6" for="location">Your location</label>
+                                        <input name="location" value="{{ old('location') }}" type="text"
+                                            class="form-control" id="location" placeholder="What is your location ?" />
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="form-check">
                                             <input class="form-check-input" name="confirm" type="checkbox"
                                                 value="Yes" id="confirm" required />
-                                            <label class="form-check-label" for="confirm">I confirm that i will deposit my payment before the July 30, 2024.</label>
+                                            <label class="form-check-label" for="confirm">I confirm that i will deposit
+                                                my payment before the July 30, 2024.</label>
                                         </div>
                                     </div>
 

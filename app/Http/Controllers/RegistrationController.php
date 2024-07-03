@@ -29,6 +29,7 @@ class RegistrationController extends Controller
             'company' => 'nullable',
             'attendence_type' => 'required',
             'professional' => 'required',
+            'location' => 'nullable',
         ]);
         try {
             $customer = TrainingRegistration::create($request->all());
