@@ -66,8 +66,8 @@ class RegistrationController extends Controller
         ]);
         try {
             $customer = ShortTraining::create($request->all());
-            // Mail::to('alexandre@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
-            Mail::to('byamungu.lewis@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
+            Mail::to('alexandre@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
+            // Mail::to('byamungu.lewis@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
             return Redirect::to('https://nzizaglobal.co.tz');
         } catch (\Throwable $th) {
             return back()->with('error', 'some thing went wrong please try again');
