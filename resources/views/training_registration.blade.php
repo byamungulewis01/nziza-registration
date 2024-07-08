@@ -2,49 +2,13 @@
 @section('content')
     <section id="landingContact" class="section-py bg-body landing-contact">
         <div class="container">
-            <div class="row gy-4">
+            <div class="row gy-4 justify-content-center">
                 @if (session('status'))
                     <div class="alert alert-danger">
                         <p><strong class="text-danger">Opps Something went wrong {{ $message }}</strong></p>
                     </div>
                 @endif
-
-                <div class="col-lg-5">
-                    <div class="contact-img-box position-relative border p-2 h-100">
-                        <img src="{{ asset('assets/img/nziza/newProtaDodoma.jpg') }}" alt="contact customer service"
-                            class="contact-img w-100 scaleX-n1-rtl" />
-                        {{-- <div class="pt-3 px-4 pb-1">
-                            <div class="row gy-3 gx-md-4">
-                                <div class="col-md-6 col-lg-12 col-xl-6">
-                                    <div class="d-flex align-items-center">
-                                        <div class="badge bg-label-primary rounded p-2 me-2"><i
-                                                class="ti ti-mail ti-sm"></i></div>
-                                        <div>
-                                            <p class="mb-0">Email</p>
-                                            <h5 class="mb-0">
-                                                <a href="mailto:info@nzizaglobal.co.tz"
-                                                    class="text-heading">info@nzizaglobal.co.tz</a>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-12 col-xl-6">
-                                    <div class="d-flex align-items-center">
-                                        <div class="badge bg-label-success rounded p-2 me-2">
-                                            <i class="ti ti-phone-call ti-sm"></i>
-                                        </div>
-                                        <div>
-                                            <p class="mb-0">Phone</p>
-                                            <h5 class="mb-0"><a href="https://wa.me/255775236096"
-                                                    class="text-heading">+255 775 236 096</a></h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-                    </div>
-                </div>
-                <div class="col-lg-7">
+                <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
                             @php
@@ -56,7 +20,7 @@
                             <form action="{{ route('training_registration_store') }}" method="POST">
                                 @csrf
                                 <div class="row g-3">
-                                    <div class="col-lg-6 col-md-12">
+                                    <div class="col-lg-12 col-md-12">
                                         <label class="form-label fs-6" for="name">Full Name<span
                                                 class="text-danger">*</span></label>
                                         <input required type="text" name="name" value="{{ old('name') }}"
@@ -67,7 +31,7 @@
                                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-danger" />
 
                                     </div>
-                                    <div class="col-lg-6 col-md-12">
+                                    <div class="col-lg-12 col-md-12">
                                         <label class="form-label fs-6" for="email">Work Email<span
                                                 class="text-danger">*</span></label>
                                         <input required type="email" class="form-control" placeholder="email@gmail.com"
