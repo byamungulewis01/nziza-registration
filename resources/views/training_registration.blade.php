@@ -28,6 +28,7 @@
                                         <input type="hidden" name="traning_name" value="{{ @$selectTraining->name }}">
                                         <input type="hidden" name="venue" value="{{ @$selectTraining->venue }}">
                                         <input type="hidden" name="date" value="{{ @$selectTraining->date }}">
+                                        <input type="hidden" name="endOfRegistration" value="{{ @$selectTraining->endOfRegistration }}">
                                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-danger" />
 
                                     </div>
@@ -103,10 +104,10 @@
 
                                     </div>
                                     <div class="col-lg-6 col-md-12">
-                                        <label class="form-label fs-6" for="name">What you study in college <span
+                                        <label class="form-label fs-6" for="name">What have you studied in college ? <span
                                                 class="text-danger">*</span></label>
                                         <input class="form-control" required name="college"
-                                            placeholder="write what you study here" value="{{ old('college') }}" />
+                                            placeholder="Write what you studied in college" value="{{ old('college') }}" />
                                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-danger" />
 
                                     </div>
@@ -116,7 +117,7 @@
                                                 value="Yes" id="confirm" required />
                                             <label class="form-check-label" for="confirm">I confirm that i will deposit
                                                 my payment before the
-                                                {{ $selectTraining->date ?? 'July 30, 2024' }}.</label>
+                                                {{ $selectTraining->endOfRegistration ?? 'July 30, 2024' }}.</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
