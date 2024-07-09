@@ -32,7 +32,7 @@ class UniqueFieldsTraining implements Rule
     {
         // Check if the field value is unique for the given training name
         $exists = DB::table('short_trainings')
-            ->where('traning_name', $this->trainingName)
+            ->where('training_name', $this->trainingName)
             ->where($this->field, $value)
             ->exists();
 

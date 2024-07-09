@@ -17,8 +17,9 @@ class ShortTraining extends Model
         'attendence_type',
         'college',
         'location',
-        'traning_name',
+        'training_name',
         'venue',
         'date',
+        'endOfRegistration',
     ];
 }

@@ -25,7 +25,7 @@
                                                 class="text-danger">*</span></label>
                                         <input required type="text" name="name" value="{{ old('name') }}"
                                             class="form-control" id="name" placeholder="Provide Name" />
-                                        <input type="hidden" name="traning_name" value="{{ @$selectTraining->name }}">
+                                        <input type="hidden" name="training_name" value="{{ @$selectTraining->name }}">
                                         <input type="hidden" name="venue" value="{{ @$selectTraining->venue }}">
                                         <input type="hidden" name="date" value="{{ @$selectTraining->date }}">
                                         <input type="hidden" name="endOfRegistration" value="{{ @$selectTraining->endOfRegistration }}">

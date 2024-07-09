@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ProtaMail;
+use App\Mail\ShortTrainingConfirmationEmail;
 use Illuminate\Http\Request;
 use App\Models\ShortTraining;
 use App\Mail\ConfirmationEmail;
@@ -55,11 +56,11 @@ class RegistrationController extends Controller
         // dd($request->all());
         $request->validate([
             'name' => 'required',
-            'email' => ['required', 'email', new UniqueFieldsTraining($request->traning_name, 'email')],
-            'phone' => ['required', 'string', new UniqueFieldsTraining($request->traning_name, 'phone')],
+            'email' => ['required', 'email', new UniqueFieldsTraining($request->training_name, 'email')],
+            'phone' => ['required', 'string', new UniqueFieldsTraining($request->training_name, 'phone')],
             'company' => 'nullable',
             'location' => 'nullable',
-            'traning_name' => 'nullable',
+            'training_name' => 'nullable',
             'venue' => 'nullable',
             'date' => 'nullable',
             'attendence_type' => 'required',
@@ -67,8 +68,9 @@ class RegistrationController extends Controller
         ]);
         try {
             $customer = ShortTraining::create($request->all());
-            Mail::to('alexandre@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
-            // Mail::to('byamungu.lewis@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
+            // Mail::to('alexandre@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
+            Mail::to('byamungu.lewis@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
+            Mail::to($customer->email)->send(new ShortTrainingConfirmationEmail($customer));
             return Redirect::to('https://nzizaglobal.co.tz');
         } catch (\Throwable $th) {
             return back()->with('error', 'some thing went wrong please try again');
