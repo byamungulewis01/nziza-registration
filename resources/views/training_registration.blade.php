@@ -29,6 +29,7 @@
                                         <input type="hidden" name="venue" value="{{ @$selectTraining->venue }}">
                                         <input type="hidden" name="date" value="{{ @$selectTraining->date }}">
                                         <input type="hidden" name="endOfRegistration" value="{{ @$selectTraining->endOfRegistration }}">
+                                        <input type="hidden" name="software" value="{{ @$selectTraining->software }}">
                                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-danger" />
 
                                     </div>

@@ -21,5 +21,6 @@ class ShortTraining extends Model
         'venue',
         'date',
         'endOfRegistration',
+        'software',
     ];
 }

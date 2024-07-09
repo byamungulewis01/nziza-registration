@@ -1,7 +1,11 @@
 @component('mail::message')
+@php
+    $date = new DateTime($customer->date);
+    $monthName = $date->format('F');
+@endphp
 Dear {{ $customer->name }},
 
-We are pleased to confirm your registration for the **{{ $customer->training_name }}** scheduled to take place in **{{ $customer->date }}**. Your enrollment in this program is now secured, and we are excited to have you join us.
+We are pleased to confirm your registration for the **{{ $customer->training_name }}** with **{{ $customer->software }}** scheduled to take place in **{{ $monthName }}**. Your enrollment in this program is now secured, and we are excited to have you join us.
 
 You will need to deposit your training payment before **{{ $customer->endOfRegistration }}** to confirm your seat. Here are the payment details:
 
@@ -18,5 +22,6 @@ Thank you for choosing Nziza Global (Tanzania) for your professional development
 Best regards,
 
 Nziza Global Ltd
+Tanzania Team
 @endcomponent
 
