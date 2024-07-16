@@ -98,7 +98,7 @@ class RegistrationController extends Controller
         //     8 => (object) ['name' => 'BIM for Infrastructure Projects', 'software' => 'BIM Collaborate Pro', 'amount' => '1,100,000', 'virtual_amount' => '700,000', 'venue' => 'Morogoro', 'date' => 'January 20, 2025', 'endOfRegistration' => 'December 30, 2024'],
         // ];
 
-        return view('training_regis tration', compact('selectTraining'));
+        return view('training_registration', compact('selectTraining'));
     }
     public function training_list($id)
     {
