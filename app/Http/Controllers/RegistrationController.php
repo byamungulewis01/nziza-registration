@@ -104,8 +104,11 @@ class RegistrationController extends Controller
     {
         $curl = curl_init();
 
+        // $url = "http://nziza-mis.test/api/short-training/{$id}";
+        $url = "https://www.nzizamis.com/api/short-training/{$id}";
+
         curl_setopt_array($curl, [
-            CURLOPT_URL => "http://nziza-mis.test/api/short-training/{$id}",
+            CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
