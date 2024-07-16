@@ -15,6 +15,7 @@ class ShortTraining extends Model
         'phone',
         'company',
         'attendence_type',
+        'trainees',
         'college',
         'location',
         'training_name',

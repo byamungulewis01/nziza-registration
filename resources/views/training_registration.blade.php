@@ -11,9 +11,7 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            @php
-                                $selectTraining = @$training[request('id')];
-                            @endphp
+
                             <h4 class="mb-4">{{ $selectTraining->name ?? 'Training' }} Registration</h4>
                             {{-- <p class="text-muted mb-4">Uzinduzi wa mafunzo na utoaji vyeti vya kimataifa kwa watumiaji wa
                                 ProtaStructure 2024</p> --}}
@@ -33,7 +31,7 @@
                                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-danger" />
 
                                     </div>
-                                    <div class="col-lg-12 col-md-12">
+                                    <div class="col-lg-6 col-md-12">
                                         <label class="form-label fs-6" for="email">Work Email<span
                                                 class="text-danger">*</span></label>
                                         <input required type="email" class="form-control" placeholder="email@gmail.com"
@@ -57,6 +55,14 @@
                                             class="form-control" id="company"
                                             placeholder="What company do you work for?" />
                                         <x-input-error :messages="$errors->get('company')" class="mt-2 text-danger" />
+
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <label class="form-label fs-6" for="trainees">Number of Trainees<strong>(Optional)</strong></label>
+                                        <input name="trainees" value="{{ old('trainees') }}" type="number" min="1"
+                                            class="form-control" id="trainees"
+                                            placeholder="Trainee number" />
+                                        <x-input-error :messages="$errors->get('trainees')" class="mt-2 text-danger" />
 
                                     </div>
                                     <div class="col-lg-6 col-md-6">
