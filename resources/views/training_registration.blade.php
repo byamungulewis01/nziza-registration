@@ -18,6 +18,7 @@
                             <form action="{{ route('training_registration_store') }}" method="POST">
                                 @csrf
                                 <div class="row g-3">
+
                                     <div class="col-lg-12 col-md-12">
                                         <label class="form-label fs-6" for="name">Full Name<span
                                                 class="text-danger">*</span></label>

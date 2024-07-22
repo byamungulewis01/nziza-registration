@@ -55,7 +55,7 @@ class RegistrationController extends Controller
     }
     public function training_registration_store(Request $request)
     {
-        // dd($request->all());
+        dd($request->all());
         $request->validate([
             'name' => 'required',
             'email' => ['required', 'email', new UniqueFieldsTraining($request->training_name, 'email')],
@@ -74,20 +74,26 @@ class RegistrationController extends Controller
             Mail::to('alexandre@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
             // Mail::to('byamungu.lewis@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
             Mail::to($customer->email)->send(new ShortTrainingConfirmationEmail($customer));
-            return Redirect::to('https://nzizaglobal.co.tz');
+            if ($request->training_name == 'Highway BIM Design') {
+                # code...
+                return to_route('success');
+            } else {
+                return Redirect::to('https://nzizaglobal.co.tz');
+            }
         } catch (\Throwable $th) {
             return back()->with('error', 'some thing went wrong please try again');
         }
     }
     public function success()
     {
-        return view('success');
+        return view('civil3d-success');
     }
     public function training_registration()
     {
         $id = request('id') ?? 0;
         $selectTraining = new TrainingResource(TanzaniaTraining::findOrFail($id));
-
+        // return response()->json($selectTraining);
+        // dd($selectTraining->location);
         return view('training_registration', compact('selectTraining'));
     }
     public function training_list($id)
