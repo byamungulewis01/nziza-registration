@@ -1,5 +1,9 @@
 @extends('layout')
 @section('content')
+@php
+use Carbon\Carbon;
+
+@endphp
     <section id="landingContact" class="section-py bg-body landing-contact">
         <div class="container">
             <div class="row gy-4 justify-content-center">
@@ -25,9 +29,9 @@
                                         <input required type="text" name="name" value="{{ old('name') }}"
                                             class="form-control" id="name" placeholder="Provide Name" />
                                         <input type="hidden" name="training_name" value="{{ @$selectTraining->name }}">
-                                        <input type="hidden" name="venue" value="{{ @$selectTraining->venue }}">
-                                        <input type="hidden" name="date" value="{{ @$selectTraining->date }}">
-                                        <input type="hidden" name="endOfRegistration" value="{{ @$selectTraining->endOfRegistration }}">
+                                        <input type="hidden" name="venue" value="{{ @$selectTraining->location }}">
+                                        <input type="hidden" name="date" value="{{ @$selectTraining->start_date }}">
+                                        <input type="hidden" name="endOfRegistration" value="{{ @Carbon::parse($selectTraining->start_date)->subWeeks(3)->toDateString() }}">
                                         <input type="hidden" name="software" value="{{ @$selectTraining->software }}">
                                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-danger" />
 
@@ -76,7 +80,7 @@
                                                     @if (!old('attendence_type')) checked="" @endif>
                                                 <span class="custom-option-header">
                                                     <span class="h6 mb-0">PHYSICAL</span>
-                                                    <span class="text-danger">{{ $selectTraining->amount ?? '700,000' }}
+                                                    <span class="text-danger">{{ number_format($selectTraining->price) ?? '700,000' }}
                                                         TZS</span>
                                                 </span>
                                                 <span class="custom-option-body">
@@ -95,7 +99,7 @@
                                                 <span class="custom-option-header">
                                                     <span class="h6 mb-0">VIRTUAL</span>
                                                     <span
-                                                        class="text-danger">{{ $selectTraining->virtual_amount ?? '400,000' }}
+                                                        class="text-danger">{{ number_format($selectTraining->virtual_price) ?? '400,000' }}
                                                         TZS</span>
                                                 </span>
                                                 <span class="custom-option-body">
@@ -125,7 +129,7 @@
                                                 value="Yes" id="confirm" required />
                                             <label class="form-check-label" for="confirm">I confirm that i will deposit
                                                 my payment before the
-                                                {{ $selectTraining->endOfRegistration ?? 'July 30, 2024' }}.</label>
+                                                {{ @Carbon::parse($selectTraining->start_date)->subWeeks(3)->format('F d, Y') ?? 'July 30, 2024' }}.</label>
                                         </div>
                                     </div>
                                     <div class="col-12">

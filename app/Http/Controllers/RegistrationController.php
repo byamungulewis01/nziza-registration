@@ -55,7 +55,6 @@ class RegistrationController extends Controller
     }
     public function training_registration_store(Request $request)
     {
-        dd($request->all());
         $request->validate([
             'name' => 'required',
             'email' => ['required', 'email', new UniqueFieldsTraining($request->training_name, 'email')],
@@ -91,9 +90,7 @@ class RegistrationController extends Controller
     public function training_registration()
     {
         $id = request('id') ?? 0;
-        $selectTraining = new TrainingResource(TanzaniaTraining::findOrFail($id));
-        // return response()->json($selectTraining);
-        // dd($selectTraining->location);
+        @$selectTraining = TanzaniaTraining::findOrFail($id);
         return view('training_registration', compact('selectTraining'));
     }
     public function training_list($id)
