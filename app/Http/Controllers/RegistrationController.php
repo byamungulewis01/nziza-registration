@@ -89,7 +89,7 @@ class RegistrationController extends Controller
     }
     public function training_registration()
     {
-        $id = request('id') ?? 0;
+        $id = request('id') ?? 0;   
         @$selectTraining = TanzaniaTraining::findOrFail($id);
         return view('training_registration', compact('selectTraining'));
     }

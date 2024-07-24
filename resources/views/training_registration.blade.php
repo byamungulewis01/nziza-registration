@@ -31,7 +31,7 @@ use Carbon\Carbon;
                                         <input type="hidden" name="training_name" value="{{ @$selectTraining->name }}">
                                         <input type="hidden" name="venue" value="{{ @$selectTraining->location }}">
                                         <input type="hidden" name="date" value="{{ @$selectTraining->start_date }}">
-                                        <input type="hidden" name="endOfRegistration" value="{{ @Carbon::parse($selectTraining->start_date)->subWeeks(3)->toDateString() }}">
+                                        <input type="hidden" name="endOfRegistration" value="{{ @Carbon::parse($selectTraining->start_date)->subWeeks(1)->toDateString() }}">
                                         <input type="hidden" name="software" value="{{ @$selectTraining->software }}">
                                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-danger" />
 
@@ -129,7 +129,7 @@ use Carbon\Carbon;
                                                 value="Yes" id="confirm" required />
                                             <label class="form-check-label" for="confirm">I confirm that i will deposit
                                                 my payment before the
-                                                {{ @Carbon::parse($selectTraining->start_date)->subWeeks(3)->format('F d, Y') ?? 'July 30, 2024' }}.</label>
+                                                {{ @Carbon::parse($selectTraining->start_date)->subWeeks(1)->format('F d, Y') ?? 'July 30, 2024' }}.</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
