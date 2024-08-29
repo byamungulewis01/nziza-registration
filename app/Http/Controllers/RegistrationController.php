@@ -73,7 +73,7 @@ class RegistrationController extends Controller
             Mail::to('alexandre@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
             // Mail::to('byamungu.lewis@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
             Mail::to($customer->email)->send(new ShortTrainingConfirmationEmail($customer));
-            if ($request->training_name == 'Water Distribution Design') {
+            if ($request->training_name == 'Technical Drafting') {
                 # code...
                 return to_route('success');
             } else {
