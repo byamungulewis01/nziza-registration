@@ -73,7 +73,7 @@ class RegistrationController extends Controller
             Mail::to('alexandre@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
             // Mail::to('byamungu.lewis@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
             Mail::to($customer->email)->send(new ShortTrainingConfirmationEmail($customer));
-            if ($request->training_name == 'Highway BIM Design') {
+            if ($request->training_name == 'Water Distribution Design') {
                 # code...
                 return to_route('success');
             } else {
@@ -85,11 +85,11 @@ class RegistrationController extends Controller
     }
     public function success()
     {
-        return view('civil3d-success');
+        return view('autocad-2025-success');
     }
     public function training_registration()
     {
-        $id = request('id') ?? 0;   
+        $id = request('id') ?? 0;
         @$selectTraining = TanzaniaTraining::findOrFail($id);
         return view('training_registration', compact('selectTraining'));
     }
