@@ -16,9 +16,8 @@ use Carbon\Carbon;
                     <div class="card">
                         <div class="card-body">
 
-                            <h4 class="mb-4">{{ $selectTraining->name ?? 'Training' }} Registration</h4>
-                            {{-- <p class="text-muted mb-4">Uzinduzi wa mafunzo na utoaji vyeti vya kimataifa kwa watumiaji wa
-                                ProtaStructure 2024</p> --}}
+                            <h4 class="mb-0">Registration form : Training on <span class="text-danger">{{ $selectTraining->software }}</span> </h4>
+                            <p class="text-muted mb-4">#{{ strtoupper($selectTraining->name) }}</p>
                             <form action="{{ route('training_registration_store') }}" method="POST">
                                 @csrf
                                 <div class="row g-3">
@@ -29,6 +28,7 @@ use Carbon\Carbon;
                                         <input required type="text" name="name" value="{{ old('name') }}"
                                             class="form-control" id="name" placeholder="Provide Name" />
                                         <input type="hidden" name="training_name" value="{{ @$selectTraining->name }}">
+                                        <input type="hidden" name="training_id" value="{{ @$selectTraining->id }}">
                                         <input type="hidden" name="venue" value="{{ @$selectTraining->location }}">
                                         <input type="hidden" name="date" value="{{ @$selectTraining->start_date }}">
                                         <input type="hidden" name="endOfRegistration" value="{{ @Carbon::parse($selectTraining->start_date)->subWeeks(1)->toDateString() }}">
