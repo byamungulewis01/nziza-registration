@@ -158,13 +158,15 @@
 
     <!-- endbuild -->
 
+    @yield('js')
+
     <!-- Vendors JS -->
     {{-- <script src="{{ asset('assets/vendor/libs/nouislider/nouislider.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/swiper/swiper.js') }}"></script> --}}
 
     <!-- Main JS -->
     <script src="{{ asset('assets/js/front-main.js') }}"></script>
-    <script>
+    {{-- <script>
         $('#who').change(function() {
             var choice = $(this).val();
             if (choice == 'none') {
@@ -203,7 +205,7 @@
             }
 
         });
-    </script>
+    </script> --}}
     {{-- <script>
         $(document).ready(function() {
             $('#submit_button').click(function() {
@@ -225,7 +227,7 @@
         });
     </script>
 
-<script>
+{{-- <script>
    // Define the countdown function
 const countDown = () => {
   // Set the release date for the Aquaman movie
@@ -266,7 +268,7 @@ countDown();
 
 // Set up a recurring timer to update the countdown every second
 setInterval(countDown, 1000);
-</script>
+</script> --}}
 
 </body>
 

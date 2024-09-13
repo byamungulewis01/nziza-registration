@@ -10,7 +10,7 @@
             </div>
 
             <p class="text-center mb-4 mb-lg-5 pb-md-3">
-                Check your email for payment details about Civil 3D 2025 Training.  </br></br>
+                Check your email for payment details about Protastructure 2025 Training.  </br></br>
                 <a href="https://wa.me/255775236096" class="btn btn-success">Click here to WhatsApp Us for more info</a>
             </p>
 

@@ -73,8 +73,7 @@ class RegistrationController extends Controller
             Mail::to('alexandre@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
             // Mail::to('byamungu.lewis@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
             Mail::to($customer->email)->send(new ShortTrainingConfirmationEmail($customer));
-            if ($request->training_id == 3) {
-                # code...
+            if ($request->training_id == 4) {
                 return to_route('success');
             } else {
                 return Redirect::to('https://nzizaglobal.co.tz');
@@ -85,7 +84,7 @@ class RegistrationController extends Controller
     }
     public function success()
     {
-        return view('autocad-2025-success');
+        return view('short-training-success');
     }
     public function training_registration()
     {
