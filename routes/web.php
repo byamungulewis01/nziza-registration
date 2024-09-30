@@ -18,7 +18,7 @@ Route::controller(RegistrationController::class)->group(function () {
     Route::get('/', 'index')->name('index');
     Route::post('/register', 'register')->name('register');
     // Route::get('/success', 'success')->name('success');
-    Route::get('/protastructure2025-success', 'success')->name('success');
+    Route::get('/midas-civil-training-success', 'success')->name('success');
     Route::get('/short-training', 'training_registration')->name('training_registration');
     Route::post('/short-training', 'training_registration_store')->name('training_registration_store');
 });

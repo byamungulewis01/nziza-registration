@@ -1,6 +1,5 @@
 @extends('layout')
 @section('conversion')
-
 @endsection
 @section('content')
     <section id="landingContact" class="section-py landing-contact">
@@ -10,7 +9,8 @@
             </div>
 
             <p class="text-center mb-4 mb-lg-5 pb-md-3">
-                Check your email for payment details about Protastructure 2025 Training.  </br></br>
+                Welcome to the Midas Civil 2024 Bridge Design Training!
+                </br></br>
                 <a href="https://wa.me/255775236096" class="btn btn-success">Click here to WhatsApp Us for more info</a>
             </p>
 
