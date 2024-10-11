@@ -75,6 +75,8 @@ class RegistrationController extends Controller
             Mail::to($customer->email)->send(new ShortTrainingConfirmationEmail($customer));
             if ($request->training_id == 5) {
                 return to_route('success');
+            } else if ($request->training_id == 6) {
+                return to_route('watergems_success');
             } else {
                 return Redirect::to('https://nzizaglobal.co.tz');
             }
@@ -85,6 +87,10 @@ class RegistrationController extends Controller
     public function success()
     {
         return view('short-training-success');
+    }
+    public function watergems_success()
+    {
+        return view('watergems_success');
     }
     public function training_registration()
     {
