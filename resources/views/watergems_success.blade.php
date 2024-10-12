@@ -15,6 +15,8 @@
                 To help you prepare, <a target="_blank" href="https://nzizaglobal.co.tz/wp-content/uploads/2024/10/Curriculum-WaterGEMS-Training-in-MOROGORO.pdf">Click here to download the training curriculum.</a> <br>
                 Please ensure to deposit your payment before <strong>November 04, 2024</strong>, to avoid losing your seat.
                 <br>
+                Stay Connected! <a target="_blank" href="https://chat.whatsapp.com/KucyIOk4wAoIAfOVOzkyAP">Click here to Join our WhatsApp Group</a>
+
 
             </div>
             <h5 class="text-center mt-3">Need Help?</h5>
