@@ -73,20 +73,16 @@ class RegistrationController extends Controller
             Mail::to('alexandre@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
             // Mail::to('byamungu.lewis@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
             Mail::to($customer->email)->send(new ShortTrainingConfirmationEmail($customer));
-            if ($request->training_id == 5) {
-                return to_route('success');
-            } else if ($request->training_id == 6) {
-                return to_route('watergems_success');
-            } else {
-                return Redirect::to('https://nzizaglobal.co.tz');
-            }
+            return to_route('success',$request->slug);
         } catch (\Throwable $th) {
             return back()->with('error', 'some thing went wrong please try again');
         }
     }
-    public function success()
+    public function success($slug)
     {
-        return view('short-training-success');
+        $training = TanzaniaTraining::where('slug', $slug)->firstOrFail();
+
+        return view('short-training-success', ['training' =>  $training]);
     }
     public function watergems_success()
     {

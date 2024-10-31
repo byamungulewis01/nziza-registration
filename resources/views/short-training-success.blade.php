@@ -2,20 +2,27 @@
 @section('conversion')
 @endsection
 @section('content')
-    <section id="landingContact" class="section-py landing-contact">
-        <div class="container mt-5">
+    <section id="landingContact" class="section-py">
+        <div class="container">
             <div class="text-center mt-5 mb-3 pb-1">
-                <span class="badge bg-label-primary fs-12">Thank you for Registering</span>
+                <span class="badge bg-label-primary fs-1"> Thank you for Registering</span>
             </div>
-            <p class="text-center mb-4 mb-lg-5 pb-md-3">
-                Welcome to the Midas Civil 2024 Bridge Design Training! <br>
-               <strong> Your registration is confirmed!</strong>
-            <h5 class="text-center mt-0">What's Next?</h5>
-            <div class="text-center mt-0">
-                To help you prepare, <a target="_blank" href="https://nzizaglobal.co.tz/wp-content/uploads/2024/09/Curriculum-Bridge-Design-Training.pdf">Click here to download the training curriculum.</a> <br>
-                Please ensure to deposit your payment before <strong>October 14, 2024</strong>, to avoid losing your seat.
-                <br>
-                Stay Connected! <a target="_blank" href="https://chat.whatsapp.com/LuQa4Nf0xz6IWucpr7O4AK">Click here to Join our WhatsApp Group</a>
+            <p class="text-center">
+                Welcome to the {{ $training->software }} {{ $training->name }} Training! <br>
+                <strong> Your registration is confirmed!</strong>
+            </p>
+            <div style="margin-top: -20px;" class="text-center mt-0">
+                <h5 class="text-center mt-0">What's Next?</h5>
+                <p>
+                    To help you prepare, <a target="_blank"
+                        href="{{ $training->curriculum }}">Click
+                        here to download the training curriculum.</a> <br>
+                    Please ensure to deposit your payment before <strong>October 14, 2024</strong>, to avoid losing your
+                    seat.
+                    <br>
+                </p>
+                Stay Connected! <a target="_blank" href="{{ $training->whatsapp_group }}">Click here to
+                    Join our WhatsApp Group</a>
 
             </div>
             <h5 class="text-center mt-3">Need Help?</h5>
@@ -27,9 +34,6 @@
 
 
             </div>
-
-            </p>
-
 
         </div>
     </section>

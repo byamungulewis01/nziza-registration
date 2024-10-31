@@ -27,8 +27,9 @@
                                         <label class="form-label fs-6" for="name">Full Name<span
                                                 class="text-danger">*</span></label>
                                         <input required type="text" name="name" value="{{ old('name') }}"
-                                            class="form-control" id="name" placeholder="Provide Name" />
+                                            class="form-control" id="name" placeholder="Provide full name" />
                                         <input type="hidden" name="training_name" value="{{ @$selectTraining->name }}">
+                                        <input type="hidden" name="slug" value="{{ @$selectTraining->slug }}">
                                         <input type="hidden" name="training_id" value="{{ @$selectTraining->id }}">
                                         <input type="hidden" name="venue" value="{{ @$selectTraining->location }}">
                                         <input type="hidden" name="date" value="{{ @$selectTraining->start_date }}">
@@ -50,7 +51,7 @@
                                         <label class="form-label fs-6" for="phone">Phone Number<span
                                                 class="text-danger">*</span></label>
                                         <input required type="text" class="form-control" name="phone"
-                                            value="{{ old('phone') }}" id="phone" placeholder="Phone Number" />
+                                            value="{{ old('phone') }}" id="phone" placeholder="Phone number" />
                                         <x-input-error :messages="$errors->get('phone')" class="mt-2 text-danger" />
 
                                     </div>

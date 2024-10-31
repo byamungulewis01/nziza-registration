@@ -3,7 +3,7 @@
 
 Training requested details: :
 
-- **Training name:** {{ $customer->training_name }}
+- **Training name:** {{ $customer->training_name }} ({{ $customer->software }})
 - **Avenue:** {{ $customer->venue }}
 - **Starting Date:** {{ $customer->date }}
 
