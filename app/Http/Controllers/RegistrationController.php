@@ -70,7 +70,7 @@ class RegistrationController extends Controller
         ]);
         try {
             $customer = ShortTraining::create($request->all());
-            Mail::to('alexandre@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
+            Mail::to('alexandre@nzizaglobal.com')->cc('mugisha.salvator@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
             // Mail::to('byamungu.lewis@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
             Mail::to($customer->email)->send(new ShortTrainingConfirmationEmail($customer));
             return to_route('success',$request->slug);
@@ -81,7 +81,6 @@ class RegistrationController extends Controller
     public function success($slug)
     {
         $training = TanzaniaTraining::where('slug', $slug)->firstOrFail();
-
         return view('short-training-success', ['training' =>  $training]);
     }
     public function watergems_success()
