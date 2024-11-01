@@ -315,7 +315,7 @@
                     // If "No" is selected, show SweetAlert confirmation
                     Swal.fire({
                         title: "Are you sure?",
-                        text: "Are you sure that you didn't attend college?",
+                        text: "Are you sure you don't have college diploma or degree?",
                         icon: "warning",
                         showCancelButton: true,
                         confirmButtonText: "Yes, I'm sure",
