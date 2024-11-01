@@ -56,20 +56,26 @@
 
                                     </div>
 
-                                    <div class="col-lg-12 col-md-12">
-                                        <label class="form-label fs-6" for="trainees">Select Category </label>
-                                        <select name="option" class="form-select" id="option">
-                                            <option value="individual">Individual</option>
-                                            <option value="company">Company</option>
-                                        </select>
-                                        <x-input-error :messages="$errors->get('trainees')" class="mt-2 text-danger" />
+                                    <div class="ol-lg-12 col-md-12">
+                                        <small class="fw-medium d-block">SELECT HOW YOU ARE ATTENDING</small>
+                                        <div class="form-check form-check-inline mt-3">
+                                            <input class="form-check-input" type="radio" name="option" checked
+                                                id="individualOpt" value="individual">
+                                            <label class="form-check-label" for="individualOpt">Individual</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="option" id="companyOpt"
+                                                value="company">
+                                            <label class="form-check-label" for="companyOpt">Company</label>
+                                        </div>
 
                                     </div>
+
                                     <div id="companyDiv" class="row mt-2" style="display: none;">
 
                                         <div class="col-lg-6 col-md-12">
                                             <label class="form-label fs-6" for="company">Campany Name <span
-                                                class="text-danger">*</span></label>
+                                                    class="text-danger">*</span></label>
                                             <input name="company" value="{{ old('company') }}" type="text"
                                                 class="form-control" id="company"
                                                 placeholder="What company do you work for?" />
@@ -79,7 +85,7 @@
 
                                         <div class="col-lg-6 col-md-12">
                                             <label class="form-label fs-6" for="trainees">Number of Trainees <span
-                                                class="text-danger">*</span></label>
+                                                    class="text-danger">*</span></label>
                                             <input name="trainees" value="{{ old('trainees') }}" id="trainees"
                                                 type="number" min="1" class="form-control" id="trainees"
                                                 placeholder="Trainee number" />
@@ -127,17 +133,47 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-12">
+                                    <div class="col-lg-12">
+                                        <div class="alert alert-warning alert-dismissible mb-2 mt-2 p-4" role="alert"
+                                            id="trainingAlert" style="position: relative;">
+                                            <!-- Blinking Icon -->
+                                            <span id="attentionIcon"
+                                                style="position: absolute; top: 10px; right: 10px; font-size: 70px; color: red; animation: blink 1s infinite;">&#9888;</span>
+
+                                            <!-- Alert Heading and Message -->
+                                            <h5 class="alert-heading mb-1 text-break" id="alertHeading"
+                                                style="font-weight: bold;">Mafunzo haya yanahitaji elimu ya ngazi ya chuo
+                                                kikuu.</h5>
+                                            <p class="mb-0" id="alertMessage">Je, una diploma au shahada ya chuo cha
+                                                ufundi inayohusiana na mafunzo haya?</p>
+
+                                            <!-- Radio Options -->
+                                            <div>
+                                                <div class="form-check form-check-info form-check-inline text-dark mt-2">
+                                                    <input class="form-check-input" type="radio" name="collegeOpt"
+                                                        id="inlineRadio1" value="yes">
+                                                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                                </div>
+                                                <div class="form-check form-check-danger form-check-inline text-dark">
+                                                    <input class="form-check-input" type="radio" name="collegeOpt"
+                                                        id="inlineRadio2" value="no">
+                                                    <label class="form-check-label" for="inlineRadio2">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{-- <div class="col-lg-6 col-md-12">
                                         <label class="form-label fs-6" for="location">Your location</label>
                                         <input name="location" value="{{ old('location') }}" type="text"
                                             class="form-control" id="location" placeholder="What is your location ?" />
                                         <x-input-error :messages="$errors->get('location')" class="mt-2 text-danger" />
 
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
+                                    </div> --}}
+                                    <div style="display: none;" id="collegeDiv" class="col-lg-12 col-md-12">
                                         <label class="form-label fs-6" for="name">What have you studied in college ?
                                             <span class="text-danger">*</span></label>
-                                        <input class="form-control" required name="college"
+                                        <input class="form-control" id="college" required name="college"
                                             placeholder="Write what you studied in college"
                                             value="{{ old('college') }}" />
                                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-danger" />
@@ -166,9 +202,68 @@
         </div>
     </section>
 @endsection
+@section('css')
+    <style>
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        #trainingAlert {
+            animation: pulse 5s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                background-color: #fff3cd;
+            }
+
+            50% {
+                background-color: #ffecb5;
+            }
+        }
+    </style>
+@endsection
 @section('js')
     <script>
-        $('#option').change(function() {
+        // Text in English and Swahili
+        const texts = {
+            swahili: {
+                heading: "Mafunzo haya yanahitaji elimu ya ngazi ya chuo kikuu.",
+                message: "Je, una diploma au shahada ya chuo cha ufundi inayohusiana na mafunzo haya?"
+            },
+            english: {
+                heading: "This training requires you to have a college level education.",
+                message: "Do you have a college diploma or degree?"
+            }
+        };
+
+        let currentLanguage = "swahili"; // Start with Swahili
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === "swahili" ? "english" : "swahili";
+
+            // Fade out effect
+            $("#alertHeading, #alertMessage").fadeOut(500, function() {
+                // Update text once faded out
+                $("#alertHeading").text(texts[currentLanguage].heading);
+                $("#alertMessage").text(texts[currentLanguage].message);
+
+                // Fade in effect
+                $("#alertHeading, #alertMessage").fadeIn(500);
+            });
+        }
+
+        // Change language every 5 seconds
+        setInterval(toggleLanguage, 5000);
+    </script>
+
+    <script>
+        $('input[name="option"]').change(function() {
+
             if ($(this).val() === 'company') {
                 $('#companyDiv').show();
                 $('#trainees').attr('required', 'required'); // Make #trainees required
@@ -178,6 +273,62 @@
                 $('#trainees').removeAttr('required').val(''); // Remove required attribute from #trainees
                 $('#company').removeAttr('required').val(''); // Remove required attribute from #trainees
             }
+        });
+    </script>
+    <script>
+        $('input[name="collegeOpt"]').change(function() {
+            console.log($(this).val());
+            if ($(this).val() === 'yes') {
+                $('#collegeDiv').show();
+                $('#college').attr('required', 'required');
+            } else {
+                $('#collegeDiv').hide();
+                $('#college').removeAttr('required').val('');
+            }
+        });
+    </script>
+    {{-- <script>
+        $(document).ready(function() {
+            $("form").submit(function(event) {
+                $(this).find("button[type=submit]").html(
+                    '<span class="spinner-border me-1" role="status" aria-hidden="true"></span> Loading...'
+                ).prop("disabled", true);
+            });
+        });
+    </script> --}}
+    <script>
+        $(document).ready(function() {
+            $("form").submit(function(event) {
+                event.preventDefault(); // Prevent form from submitting immediately
+
+                // Check which radio option is selected
+                const selectedOption = $("input[name='collegeOpt']:checked").val();
+
+                // If "Yes" is selected, submit the form normally
+                if (selectedOption === "yes") {
+                    $(this).find("button[type=submit]").html(
+                        '<span class="spinner-border me-1" role="status" aria-hidden="true"></span> Loading...'
+                    ).prop("disabled", true);
+
+                    this.submit(); // Submit form
+                } else if (selectedOption === "no") {
+                    // If "No" is selected, show SweetAlert confirmation
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "Are you sure that you didn't attend college?",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonText: "Yes, I'm sure",
+                        cancelButtonText: "No, go back"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "https://www.google.com";
+                        } else {
+                            // If not confirmed, do nothing (stay on form)
+                        }
+                    });
+                }
+            });
         });
     </script>
 @endsection

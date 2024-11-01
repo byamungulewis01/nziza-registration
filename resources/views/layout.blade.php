@@ -37,23 +37,40 @@
     <!-- Page CSS -->
 
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/front-page-landing.css') }}" />
-    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-16541374180'); </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'AW-16541374180');
+    </script>
     <!-- Meta Pixel Code -->
-<script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1632547787502797');
-    fbq('track', 'PageView');
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1632547787502797');
+        fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1632547787502797&ev=PageView&noscript=1"
-    /></noscript>
+            src="https://www.facebook.com/tr?id=1632547787502797&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
     <!-- Helpers -->
     @yield('conversion')
@@ -61,37 +78,38 @@
     <script src="{{ asset('assets/js/front-config.js') }}"></script>
     <script src="{{ asset('assets/js/sweet-alert.js') }}"></script>
     <style>
-       .countdown-container {
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  justify-content: center;
-  height: 100%;
-  color: white;
-}
+        .countdown-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: white;
+        }
 
-.countdown {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 3rem;
-  margin-left: 2rem;
-}
+        .countdown {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 3rem;
+            margin-left: 2rem;
+        }
 
-.countdown h2 {
-  font-size: 2rem;
-  background: linear-gradient(to right, #ffd900, #ff2f00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+        .countdown h2 {
+            font-size: 2rem;
+            background: linear-gradient(to right, #ffd900, #ff2f00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-@media (min-width: 768px) {
-  .countdown-container {
-    margin-left: 4rem;
-  }
-}
+        @media (min-width: 768px) {
+            .countdown-container {
+                margin-left: 4rem;
+            }
+        }
     </style>
+    @yield('css')
 
 </head>
 
@@ -217,17 +235,9 @@
             });
         });
     </script> --}}
-    <script>
-        $(document).ready(function() {
-            $("form").submit(function(event) {
-                $(this).find("button[type=submit]").html(
-                    '<span class="spinner-border me-1" role="status" aria-hidden="true"></span> Loading...'
-                ).prop("disabled", true);
-            });
-        });
-    </script>
+    
 
-{{-- <script>
+    {{-- <script>
    // Define the countdown function
 const countDown = () => {
   // Set the release date for the Aquaman movie
