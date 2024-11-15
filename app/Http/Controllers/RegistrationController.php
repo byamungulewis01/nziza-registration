@@ -68,12 +68,21 @@ class RegistrationController extends Controller
             'attendence_type' => 'required',
             'college' => 'required',
         ]);
+
         try {
             $customer = ShortTraining::create($request->all());
+
+            $training = TanzaniaTraining::findOrFail($request->training_id);
+            // dd($training);
+            if (!$this->isValidProfession($training->allowed_professions, $request->college)) {
+                return back()->with('unqualified', 'unqualified Professional');
+            }
+            $customer->update(['status' => 'qualified']);
+
             Mail::to('alexandre@nzizaglobal.com')->cc('mugisha.salvator@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
             // Mail::to('byamungu.lewis@nzizaglobal.com')->send(new ShortTrainingRegister($customer));
             Mail::to($customer->email)->send(new ShortTrainingConfirmationEmail($customer));
-            return to_route('success',$request->slug);
+            return to_route('success', $request->slug);
         } catch (\Throwable $th) {
             return back()->with('error', 'some thing went wrong please try again');
         }
@@ -81,7 +90,7 @@ class RegistrationController extends Controller
     public function success($slug)
     {
         $training = TanzaniaTraining::where('slug', $slug)->firstOrFail();
-        return view('short-training-success', ['training' =>  $training]);
+        return view('short-training-success', ['training' => $training]);
     }
     public function watergems_success()
     {
@@ -89,7 +98,7 @@ class RegistrationController extends Controller
     }
     public function training_registration()
     {
-        $id = request('id') ?? 0;
+        $id = request(key: 'id') ?? 0;
         @$selectTraining = TanzaniaTraining::findOrFail($id);
         return view('training_registration', compact('selectTraining'));
     }
@@ -97,5 +106,14 @@ class RegistrationController extends Controller
     {
         $collection = new TrainingResource(TanzaniaTraining::findOrFail($id));
         return response()->json($collection);
+    }
+    protected function isValidProfession($allowed_professions, $profession)
+    {
+        foreach ($allowed_professions as $allowedProfession) {
+            if (stripos($profession, $allowedProfession) !== false) {
+                return true;
+            }
+        }
+        return false;
     }
 }

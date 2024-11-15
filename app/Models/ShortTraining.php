@@ -23,5 +23,7 @@ class ShortTraining extends Model
         'date',
         'endOfRegistration',
         'software',
+        'status',
+
     ];
 }

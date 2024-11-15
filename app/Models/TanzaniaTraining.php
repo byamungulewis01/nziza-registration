@@ -17,5 +17,9 @@ class TanzaniaTraining extends Model
         'virtual_price',
         'location',
         'instructor',
+        'allowed_professions',
+    ];
+    protected $casts = [
+        'allowed_professions' => 'array',
     ];
 }
