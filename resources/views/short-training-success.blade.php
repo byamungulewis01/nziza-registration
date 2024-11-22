@@ -1,6 +1,9 @@
 @extends('layout')
 @section('conversion')
 @endsection
+@php
+use Carbon\Carbon;
+@endphp
 @section('content')
     <section id="landingContact" class="section-py">
         <div class="container">
@@ -17,7 +20,7 @@
                     To help you prepare, <a target="_blank"
                         href="{{ $training->curriculum }}">Click
                         here to download the training curriculum.</a> <br>
-                    Please ensure to deposit your payment before <strong>October 14, 2024</strong>, to avoid losing your
+                    Please ensure to deposit your payment before <strong>{{ Carbon::parse($training->start_date)->subWeeks(1)->format('F d, Y') }}.</strong>, to avoid losing your
                     seat.
                     <br>
                 </p>
